@@ -12,7 +12,7 @@ export function handleJellyMinted(event: JellyMinted): void {
     event.transaction.hash.toHexString() + event.params.stakingRewardsContract.toHexString()
   );
   tokenMintLpRewards.minter = minter.id;
-  tokenMintLpRewards.amount = event.params.mintedAmount.div(BigInt.fromString('2'));
+  tokenMintLpRewards.amount = event.params.mintedAmount;
   tokenMintLpRewards.timestamp = event.block.timestamp;
   tokenMintLpRewards.mintInitiator = event.params.sender;
   tokenMintLpRewards.benefactor = event.params.stakingRewardsContract;

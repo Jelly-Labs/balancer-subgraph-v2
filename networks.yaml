@@ -843,8 +843,8 @@ sei:
     address: "0xD04750f365a06384e7FCFD0C911C2Ea9Db0978d7"
     startBlock: 81251766
   LPRewardDistribution:
-    address: "0x9235ACCc15A5695B22F447e9A95316A2c9e5AB2C"
-    startBlock: 81252256
+    address: "0x966C3F49698644484369c318c2C699739C9D8b27"
+    startBlock: 84159387
   StakingRewardDistribution:
     address: "0x05ACf7730efFBa26F0E081Cf7B124022c4B3B91e"
     startBlock: 81252387
@@ -852,8 +852,8 @@ sei:
     address: "0xA9Ba2FbefDf3d77373a3e97097d35C5808664659"
     startBlock: 81252650
   RewardVesting:
-    address: "0x1443A3416899cB3392B13B1aB867505402884131"
-    startBlock: 81252906
+    address: "0x7d42a77a6c1aCccd9556834a8FDd61c7e387cD4A"
+    startBlock: 84159893
   JellyGovernor:
     address: "0xE401e19B5D6239d8cfb6b2Ed1A9Fc209242Ab9ae"
     startBlock: 81251971
