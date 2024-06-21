@@ -1,0 +1,23 @@
+{
+    "stableAssets": [
+      {
+        "symbol": "jUSDC",
+        "address": "0x708502c212F995b7f42aD25d44CB494f8D807D41"
+      },
+      {
+        "symbol": "USDC",
+        "address": "0x08cb25EF8A37Fe1B8f9113ca494dB38bAdD040c5"
+      }
+    ],
+    "pricingAssets": [
+      {
+        "address": "0x3921eA6Cf927BE80211Bb57f19830700285b0AdA",
+        "symbol": "WSEI"
+      },
+      {
+        "address": "0xfDCEd108BDcBCd02E5C3B5795c06F831Fe681064",
+        "symbol": "JLY"
+      }
+    ]
+  }
+  
