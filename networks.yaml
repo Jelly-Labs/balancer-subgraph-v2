@@ -836,6 +836,9 @@ sei:
   WeightedPoolV4Factory:
     address: "0xCe733ca21882D1407386aF13c59F59e02B1Db5A9"
     startBlock: 81248727
+  ComposableStablePoolV6Factory:
+    address: "0xc56eC83C192bB0328219eDD04540A93d7a85A8Ea"
+    startBlock: 85023439
   OfficialPoolsRegister:
     address: "0x434440Da993A582118f8eE200e51268380511fEf"
     startBlock: 81252521
