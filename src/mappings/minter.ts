@@ -19,7 +19,7 @@ export function handleJellyMinted(event: JellyMinted): void {
   tokenMintLpRewards.epoch = event.params.epochId;
   tokenMintLpRewards.save();
 
-  minter.lastMintedTimestamp = event.params.mintingPeriod;
+  minter.lastMintedTimestamp = event.params.newLastMintedTimestamp;
   if (minter.benfactors.indexOf(event.params.stakingRewardsContract) == -1) {
     minter.benfactors.push(event.params.stakingRewardsContract);
   }
