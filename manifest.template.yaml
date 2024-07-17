@@ -1697,6 +1697,35 @@ dataSources:
         - event: EpochAdded(uint96,bytes32,string)
           handler: handleEpochAdded
     {{/if}}
+  {{#if PartnersRewardDistribution}}
+  - kind: ethereum/contract
+    name: PartnersRewardDistribution
+    network: {{network}}
+    source:
+      address: '{{PartnersRewardDistribution.address}}'
+      abi: PartnersRewardDistribution
+      startBlock: {{PartnersRewardDistribution.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/mappings/partnersRewardDistribution.ts
+      entities:
+        - PartnersRewardDistributionSnapshot
+        - UserClaimedPartnersRewardDistribution
+        - SnapshotPartnersRewardDistribution
+        - UserPartnersData
+        - UserPartnersRewardDistributionMetaData
+        - PartnersMerkleTree
+      abis:
+        - name: PartnersRewardDistribution
+          file: ./abis/PartnersRewardDistribution.json
+      eventHandlers:
+        - event: Claimed(address,uint256,uint96)
+          handler: handleClaimed
+        - event: DropAdded(address,uint256,uint96,bytes32,string)
+          handler: handleDropAdded
+    {{/if}}
   {{#if StakingRewardDistribution}}
   - kind: ethereum/contract
     name: StakingRewardDistribution
@@ -2450,6 +2479,31 @@ templates:
         - event: EpochAdded(uint96,bytes32,string)
           handler: handleEpochAdded
   - kind: ethereum/contract
+    name: PartnersRewardDistribution
+    network: {{network}}
+    source:
+      abi: PartnersRewardDistribution
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/mappings/partnersRewardDistribution.ts
+      entities:
+        - PartnersRewardDistributionSnapshot
+        - UserClaimedPartnersRewardDistribution
+        - SnapshotPartnersRewardDistribution
+        - UserPartnersData
+        - UserPartnersRewardDistributionMetaData
+        - PartnersMerkleTree
+      abis:
+        - name: PartnersRewardDistribution
+          file: ./abis/PartnersRewardDistribution.json
+      eventHandlers:
+        - event: Claimed(address,uint256,uint96)
+          handler: handleClaimed
+        - event: DropAdded(address,uint256,uint96,bytes32,string)
+          handler: handleDropAdded
+  - kind: ethereum/contract
     name: StakingRewardDistribution
     network: {{network}}
     source:
@@ -2515,6 +2569,19 @@ templates:
       abis:
         - name: LPRewardDistribution
           file: ./abis/LPRewardDistribution.json
+  - kind: file/ipfs 
+    name: UserPartnersRewardDistributionMetaData
+    mapping:
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/mappings/partnersRewardDistribution.ts
+      handler: handleMetaData
+      entities:
+        - UserPartnersRewardDistributionMetaData
+        - PartnersMerkleTree
+      abis:
+        - name: PartnersRewardDistribution
+          file: ./abis/PartnersRewardDistribution.json
   - kind: file/ipfs 
     name: UserStakingRewardDistributionMetaData
     mapping:
