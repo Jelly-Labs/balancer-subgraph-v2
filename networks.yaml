@@ -722,6 +722,9 @@ sepolia:
   PoolParty: 
     address: "0x758b9Ce992C866821767854C2a4b0B28E3130110"
     startBlock: 5633216
+  PartnersRewardDistribution:
+    address: "0x070Fb3e7002b2c8242A4fD99eC8150B2d71FDbD1"
+    startBlock: 6332661
 polygon-zkevm:
   network: polygon-zkevm
   EventEmitter:
@@ -863,13 +866,16 @@ sei:
   PoolParty: 
     address: "0xcc11c2b7508a922319D49FA11DbC33C9b29e0934"
     startBlock: 82060839
+  PartnersRewardDistribution:
+    address: "0x49E1aB0869265BEE338355F09785e6AFAc9e35E0"
+    startBlock: 91166679
 sei-testnet:
   network: sei-testnet
   Vault:
     address: "0x428AEc7c1E0c9A52686774434A1D6DE5134Ac529"
     startBlock: 97708685
   WeightedPoolV4Factory:
-    address: "0x848Ea834Ff33794140BF0aB270204F3C98FA57C3"
+    address: "0x74737E1b3900Ed3CBc2b4cB32044e2e0540d1a69"
     startBlock: 97710366
   ComposableStablePoolV6Factory:
     address: "0x51959777281eE6A8B7c5F3D4681E1dAAd14B0779"

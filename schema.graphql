@@ -417,6 +417,35 @@ type UserClaimedLPRewardDistribution @entity {
   totalAmountOfClaimedToken: BigInt!
 }
 
+type PartnersRewardDistributionSnapshot @entity {
+  id: ID! #epochId
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  ipfsCid: String!
+  tokenAddress: Bytes!
+  tokenAmount: BigInt!
+  ipfsData: UserPartnersRewardDistributionMetaData
+  ipfsMerkleTree: PartnersMerkleTree
+}
+
+type UserPartnersRewardDistributionMetaData @entity {
+  id: ID!
+  epoch: BigInt!
+  ipfsCid: String!
+  address: Bytes!
+  value: BigInt!
+}
+
+type PartnersMerkleTree @entity {
+  id: ID!
+  merkleTree: Bytes!
+}
+
+type UserClaimedPartnersRewardDistribution @entity {
+  id: ID! # address
+  snapshots: [BigInt!]!
+}
+
 type StakingRewardDistributionSnapshot @entity {
   id: ID! #epochId
   blockNumber: BigInt!
