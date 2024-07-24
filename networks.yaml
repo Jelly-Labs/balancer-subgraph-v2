@@ -867,8 +867,8 @@ sei:
     address: "0xcc11c2b7508a922319D49FA11DbC33C9b29e0934"
     startBlock: 82060839
   PartnersRewardDistribution:
-    address: "0x49E1aB0869265BEE338355F09785e6AFAc9e35E0"
-    startBlock: 91166679
+    address: "0xD3bF119Cad7C8567E4543dC47Fce8Db104dD93dD"
+    startBlock: 91208540
 sei-testnet:
   network: sei-testnet
   Vault:
