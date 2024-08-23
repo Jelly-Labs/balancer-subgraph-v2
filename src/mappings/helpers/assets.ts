@@ -22,6 +22,7 @@ export const assets: Assets = {
   pricingAssets: [
     Address.fromString('0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7'), // WSEI
     Address.fromString('0xDD7d5e4Ea2125d43C16eEd8f1FFeFffa2F4b4aF6'), // JLY
+    Address.fromString('0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8'), // WETH
   ],
   fxAssets: [
   ],
