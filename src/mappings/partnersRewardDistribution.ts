@@ -10,7 +10,7 @@ import {
 } from '../types/schema';
 import { UserPartnersRewardDistributionMetaData as UserPartnersRewardDistributionMetaDataTemplate } from '../types/templates';
 import { log, store, Bytes, Address, BigInt, dataSource } from '@graphprotocol/graph-ts';
-import { getDistributionData, UserData } from './helpers/rewardDistribution';
+import { getDistributionDataPartnerRewards, UserData } from './helpers/rewardDistribution';
 
 export function handleClaimed(event: ClaimedEvent): void {
   let snapshotId = event.params.dropId;
@@ -52,7 +52,7 @@ export function handleMetaData(content: Bytes): void {
   lpMerkleTree.merkleTree = content;
   lpMerkleTree.save();
 
-  let distributionsData: UserData[] = getDistributionData(content);
+  let distributionsData: UserData[] = getDistributionDataPartnerRewards(content);
   if (distributionsData.length == 0) {
     log.warning('There is a problem with geting data from ipfs', []);
     return;
