@@ -28,8 +28,8 @@ export function getDistributionDataPartnerRewards(data: Bytes): UserData[] {
     epoch.toString() == '12' ||
     epoch.toString() == '13'
   ) {
-    let epochNum = epoch.toBigInt();
-    let usersData = getUsersData(merkleTree, epochNum.plus(BigInt.fromString('1')).toString());
+    let epochString = epoch.toString();
+    let usersData = getUsersData(merkleTree, BigInt.fromString(epochString).plus(BigInt.fromString('1')).toString());
     return usersData;
   }
 
