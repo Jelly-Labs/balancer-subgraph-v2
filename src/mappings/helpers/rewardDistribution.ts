@@ -1,4 +1,4 @@
-import { json, JSONValue, Bytes, BigInt } from '@graphprotocol/graph-ts';
+import { json, JSONValue, Bytes, BigInt, JSONValueKind } from '@graphprotocol/graph-ts';
 import { log } from '@graphprotocol/graph-ts';
 
 export class UserData {
@@ -21,6 +21,9 @@ export function getDistributionDataPartnerRewards(data: Bytes): UserData[] {
   if (epoch == null) {
     log.warning('The given cid {}, does not contain epoch field', []);
     return [];
+  } else if (epoch.kind == JSONValueKind.NUMBER) {
+    let usersData = getUsersData(merkleTree, epoch.toBigInt().toString());
+    return usersData;
   } else if (
     epoch.toString() == '9' ||
     epoch.toString() == '10' ||
