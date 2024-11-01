@@ -59,7 +59,7 @@ export function handleMetaData(content: Bytes): void {
 
   for (let index = 0; index < distributionsData.length; index++) {
     let distribution = distributionsData[index];
-    log.warning('Distribution LP data to save {} {}', [distribution.amount, distribution.address]);
+    // log.warning('Distribution LP data to save {} {}', [distribution.amount, distribution.address]);
     let address = changetype<Address>(Address.fromHexString(distribution.address));
     let key = dataSource.stringParam() + '-' + address.toHexString();
     let userRewardDistributionMetadata = new UserLPRewardDistributionMetaData(key);
