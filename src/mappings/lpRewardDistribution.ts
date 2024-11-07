@@ -67,6 +67,8 @@ export function handleMetaData(content: Bytes): void {
     userRewardDistributionMetadata.ipfsCid = dataSource.stringParam();
     userRewardDistributionMetadata.address = address;
     userRewardDistributionMetadata.value = BigInt.fromString(distribution.amount);
-    userRewardDistributionMetadata.save();
+    if (userRewardDistributionMetadata.value > new BigInt(0)) {
+      userRewardDistributionMetadata.save();
+    }
   }
 }
