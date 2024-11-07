@@ -60,18 +60,16 @@ export function handleMetaData(content: Bytes): void {
   for (let index = 0; index < distributionsData.length; index++) {
     let distribution = distributionsData[index];
 
-    if (BigInt.fromString(distribution.amount) <= new BigInt(0)) {
-      continue;
+    if (BigInt.fromString(distribution.amount) > new BigInt(0)) {
+      // log.warning('Distribution LP data to save {} {}', [distribution.amount, distribution.address]);
+      let address = changetype<Address>(Address.fromHexString(distribution.address));
+      let key = dataSource.stringParam() + '-' + address.toHexString();
+      let userRewardDistributionMetadata = new UserLPRewardDistributionMetaData(key);
+      userRewardDistributionMetadata.epoch = BigInt.fromString(distribution.epoch);
+      userRewardDistributionMetadata.ipfsCid = dataSource.stringParam();
+      userRewardDistributionMetadata.address = address;
+      userRewardDistributionMetadata.value = BigInt.fromString(distribution.amount);
+      userRewardDistributionMetadata.save();
     }
-
-    // log.warning('Distribution LP data to save {} {}', [distribution.amount, distribution.address]);
-    let address = changetype<Address>(Address.fromHexString(distribution.address));
-    let key = dataSource.stringParam() + '-' + address.toHexString();
-    let userRewardDistributionMetadata = new UserLPRewardDistributionMetaData(key);
-    userRewardDistributionMetadata.epoch = BigInt.fromString(distribution.epoch);
-    userRewardDistributionMetadata.ipfsCid = dataSource.stringParam();
-    userRewardDistributionMetadata.address = address;
-    userRewardDistributionMetadata.value = BigInt.fromString(distribution.amount);
-    userRewardDistributionMetadata.save();
   }
 }
