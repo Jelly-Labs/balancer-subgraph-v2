@@ -37,6 +37,9 @@ class AddressByNetwork {
   public canonical: string;
   public custom: string;
   public sei: string;
+  public seitestnet: string;
+  public tbnb: string;
+  
 }
 
 let network: string = dataSource.network();
@@ -48,6 +51,8 @@ let network: string = dataSource.network();
 let vaultAddressByNetwork: AddressByNetwork = {
   canonical: '0xFB43069f6d0473B85686a85F4Ce4Fc1FD8F00875',
   sei: '0xFB43069f6d0473B85686a85F4Ce4Fc1FD8F00875',
+  seitestnet:'0x428AEc7c1E0c9A52686774434A1D6DE5134Ac529',
+  tbnb:'0x62885fecFA40C5431d85a1E5bbE04714cF9E507F',
   custom: '0x0000000000000000000000000000000000000000',
 };
 
@@ -56,6 +61,10 @@ function forNetwork(addressByNetwork: AddressByNetwork, network: string): Addres
     return Address.fromString(addressByNetwork.custom);
   } else if (network == 'sei') {
     return Address.fromString(addressByNetwork.sei);
+  } else if (network == 'sei-testnet') {
+    return Address.fromString(addressByNetwork.seitestnet);
+  } else if (network == 'chapel') {
+    return Address.fromString(addressByNetwork.tbnb);
   } else {
     return Address.fromString(addressByNetwork.canonical);
   }

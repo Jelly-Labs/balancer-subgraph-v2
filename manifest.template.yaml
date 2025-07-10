@@ -1530,8 +1530,8 @@ dataSources:
           file: ./abis/ERC20.json
         - name: WeightedPool
           file: ./abis/WeightedPool.json
-        - name: GyroEPool
-          file: ./abis/GyroEPool.json
+        - name: GyroEV2Pool
+          file: ./abis/GyroEV2Pool.json
         - name: GyroEV2PoolFactory
           file: ./abis/GyroEV2PoolFactory.json
       eventHandlers:
@@ -1691,6 +1691,34 @@ dataSources:
       abis:
         - name: LPRewardDistribution
           file: ./abis/LPRewardDistribution.json
+      eventHandlers:
+        - event: Claimed(address,uint96,uint256)
+          handler: handleClaimed
+        - event: EpochAdded(uint96,bytes32,string)
+          handler: handleEpochAdded
+    {{/if}}
+  {{#if JAssetRewardDistribution}}
+  - kind: ethereum/contract
+    name: JAssetRewardDistribution
+    network: {{network}}
+    source:
+      address: '{{JAssetRewardDistribution.address}}'
+      abi: JAssetRewardDistribution
+      startBlock: {{JAssetRewardDistribution.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/mappings/jAssetRewardDistribution.ts
+      entities:
+        - JAssetRewardDistributionSnapshot
+        - UserClaimedJAssetRewardDistribution
+        - SnapshotJAssetRewardDistribution
+        - UserJAssetRewardDistributionMetaData
+        - JAssetMerkleTree
+      abis:
+        - name: JAssetRewardDistribution
+          file: ./abis/JAssetRewardDistribution.json
       eventHandlers:
         - event: Claimed(address,uint96,uint256)
           handler: handleClaimed
@@ -2320,7 +2348,7 @@ templates:
     name: GyroEPool
     network: {{network}}
     source:
-      abi: GyroEPool
+     abi: GyroEV2Pool
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -2333,8 +2361,8 @@ templates:
         - PoolToken
         - GradualWeightUpdate
       abis:
-        - name: GyroEPool
-          file: ./abis/GyroEPool.json
+        - name: GyroEV2Pool
+          file: ./abis/GyroEV2Pool.json
         - name: Vault
           file: ./abis/Vault.json
       eventHandlers:

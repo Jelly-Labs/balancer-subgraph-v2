@@ -13,7 +13,7 @@ export function handleIncreaseStake(event: IncreaseStake): void {
   chest.amount = event.params.totalStaked.minus(chest.unstaked);
   chest.freezedUntil = event.params.freezedUntil;
   chest.booster = event.params.booster;
-
+  chest.boosterTimestamp=event.block.timestamp;
   chest.save();
 }
 
@@ -32,6 +32,7 @@ export function handleStaked(event: Staked): void {
   chest.blockTimestamp = event.block.timestamp;
   chest.transactionHash = event.transaction.hash;
   chest.unstaked = BigInt.fromI32(0);
+  chest.boosterTimestamp=event.block.timestamp;
 
   chest.save();
 }
@@ -52,6 +53,7 @@ export function handleUnstake(event: Unstake): void {
   chest.amount = event.params.totalStaked;
   chest.booster = event.params.booster;
   chest.unstaked = chest.unstaked.plus(event.params.amount);
+  chest.boosterTimestamp=BigInt.fromI32(0);
 
   chest.save();
 }

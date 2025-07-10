@@ -1,9 +1,9 @@
-import { VestedLiquidity, VestingLiquidityClaimed, VestedStaking, VestingStakingClaimed } from '../types/schema';
+import { VestedLiquidity, VestingLiquidityClaimed, VestedStaking, VestingStakingClaimed, VestedJAsset, VestingJAssetClaimed } from '../types/schema';
 import {
   VestedLiqidty as VestedLiquidtyEvent,
   VestingLiquidityClaimed as VestingLiquidityClaimedEvent,
   VestedStaking as VestedStakingEvent,
-  VestingStakingClaimed as VestingStakingClaimedEvent
+  VestingStakingClaimed as VestingStakingClaimedEvent,
 } from '../types/templates/RewardVesting/RewardVesting';
 
 export function handleVestedLiquidty(event: VestedLiquidtyEvent): void {
@@ -36,4 +36,20 @@ export function handleVestingStakingClaimed(event: VestingStakingClaimedEvent): 
   vestingStakingClaimed.beneficiary = event.params.beneficiary;
   vestingStakingClaimed.amount = event.params.amount;
   vestingStakingClaimed.save();
+}
+
+export function handleVestedJAsset(event: VestedLiquidtyEvent): void {
+  let vestedLiquidity: VestedJAsset = new VestedJAsset(event.transaction.hash.toHex() + "-" + event.logIndex.toString());
+  vestedLiquidity.timestamp = event.block.timestamp;
+  vestedLiquidity.beneficiary = event.params.beneficiary;
+  vestedLiquidity.amount = event.params.amount;
+  vestedLiquidity.save();
+}
+
+export function handleVestingJAssetClaimed(event: VestingLiquidityClaimedEvent): void {
+  let vestedJAssetClaimed: VestingJAssetClaimed = new VestingJAssetClaimed(event.transaction.hash.toHex() + "-" + event.logIndex.toString());
+  vestedJAssetClaimed.timestamp = event.block.timestamp;
+  vestedJAssetClaimed.beneficiary = event.params.beneficiary;
+  vestedJAssetClaimed.amount = event.params.amount;
+  vestedJAssetClaimed.save();
 }

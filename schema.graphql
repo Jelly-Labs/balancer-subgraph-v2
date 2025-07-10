@@ -417,6 +417,34 @@ type UserClaimedLPRewardDistribution @entity {
   totalAmountOfClaimedToken: BigInt!
 }
 
+type JAssetRewardDistributionSnapshot @entity {
+  id: ID! #epochId
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  ipfsCid: String!
+  ipfsData: UserJAssetRewardDistributionMetaData
+  ipfsMerkleTree: JAssetMerkleTree
+}
+
+type UserJAssetRewardDistributionMetaData @entity {
+  id: ID!
+  epoch: BigInt!
+  ipfsCid: String!
+  address: Bytes!
+  value: BigInt!
+}
+
+type JAssetMerkleTree @entity {
+  id: ID!
+  merkleTree: Bytes!
+}
+
+type UserClaimedJAssetRewardDistribution @entity {
+  id: ID! # address
+  snapshots: [BigInt!]!
+  totalAmountOfClaimedToken: BigInt!
+}
+
 type PartnersRewardDistributionSnapshot @entity {
   id: ID! #epochId
   blockNumber: BigInt!
@@ -523,6 +551,7 @@ type Chest @entity {
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
+  boosterTimestamp: BigInt!
 }
 
 type VestedLiquidity @entity {
@@ -533,6 +562,20 @@ type VestedLiquidity @entity {
 }
 
 type VestingLiquidityClaimed @entity {
+  id: ID!
+  timestamp: BigInt!
+  beneficiary: Bytes!
+  amount: BigInt!
+}
+
+type VestedJAsset @entity {
+  id: ID!
+  timestamp: BigInt!
+  beneficiary: Bytes!
+  amount: BigInt!
+}
+
+type VestingJAssetClaimed @entity {
   id: ID!
   timestamp: BigInt!
   beneficiary: Bytes!

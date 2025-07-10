@@ -869,35 +869,55 @@ sei:
   PartnersRewardDistribution:
     address: "0xD3bF119Cad7C8567E4543dC47Fce8Db104dD93dD"
     startBlock: 91208540
+  GyroEV2PoolFactory:
+    address: "0xB438ea246cefA9241305aD62E5D307D014baF7Fa"
+    startBlock: 117480059
 sei-testnet:
   network: sei-testnet
   Vault:
     address: "0x428AEc7c1E0c9A52686774434A1D6DE5134Ac529"
-    startBlock: 97708685
+    startBlock: 143765000
   WeightedPoolV4Factory:
     address: "0x74737E1b3900Ed3CBc2b4cB32044e2e0540d1a69"
-    startBlock: 97710366
+    startBlock: 143765000
   ComposableStablePoolV6Factory:
     address: "0x51959777281eE6A8B7c5F3D4681E1dAAd14B0779"
-    startBlock: 97711175
+    startBlock: 143765000
   OfficialPoolsRegister:
     address: "0xf77E6289cb1118989C80f8cFf62677d9698eEBff"
-    startBlock: 97712683
+    startBlock: 143765000
   Chest:
     address: "0x1EF1715603171504C01a029Ce12aCc493cd7687a"
-    startBlock: 97711890
+    startBlock: 143765000
   LPRewardDistribution:
     address: "0x149D9772AC523DBBe75de4B2bc4930ab75C2e59F"
-    startBlock: 97712495
+    startBlock: 143765000
   StakingRewardDistribution:
     address: "0x38e72B9DaDC7cf6535dBDB73ba1750930eDE6044"
-    startBlock: 97712580
+    startBlock: 143765000
   Minter:
     address: "0xace1D3cAE5dD3824FfbC16a83912Ab6EcDb2C383"
-    startBlock: 97712821
+    startBlock: 143765000
   RewardVesting:
     address: "0x1D926c4a6Fc6b5A84d396Edd8CB5a9946f7dd4D8"
-    startBlock: 97712929
+    startBlock: 143765000
   JellyGovernor:
     address: "0xa5b738e6Cd1F159316460fE66beDc79731CB19F5"
-    startBlock: 97712047
+    startBlock: 143765000
+  JAssetRewardDistribution:
+    address: "0x9c1E0458cC2c878279ecdD833247DD0238B5f771"
+    startBlock: 144826713
+  JAssetRewardVesting:
+    address: "0x58A05e12B664b9F78cf237FdF5e150746a6cf0fc"
+    startBlock: 144826713
+chapel:
+  network: chapel
+  Vault:
+    address: "0x62885fecFA40C5431d85a1E5bbE04714cF9E507F"
+    startBlock: 53417859
+  WeightedPoolV4Factory:
+    address: "0x0405fFc076f9e6e1404a695a12154b39E44D41a4"
+    startBlock: 53417859
+  ComposableStablePoolV6Factory:
+    address: "0x4BaC4028c5E525317D85C056140730d937111Ea6"
+    startBlock: 53417859
